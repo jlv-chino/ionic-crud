@@ -10,6 +10,16 @@ export class ThemeService {
 
   constructor() { }
 
+  setInitialTheme() {
+    let darkMode = JSON.parse(localStorage.getItem('darkMode'));
+
+    if (darkMode) {
+      document.body.setAttribute('color-theme', 'dark');
+    } else {
+      document.body.setAttribute('color-theme', 'light');
+    }
+  }
+
   setTheme(darkMode: boolean) {
     if (darkMode) {
       document.body.setAttribute('color-theme', 'dark');
@@ -18,5 +28,6 @@ export class ThemeService {
     }
 
     this.darkMode.next(darkMode);
+    localStorage.setItem('darkMode', JSON.stringify(darkMode));
   }
 }
