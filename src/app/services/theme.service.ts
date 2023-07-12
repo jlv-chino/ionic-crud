@@ -14,9 +14,9 @@ export class ThemeService {
     let darkMode = JSON.parse(localStorage.getItem('darkMode'));
 
     if (darkMode) {
-      document.body.setAttribute('color-theme', 'dark');
+      this.setTheme(darkMode);
     } else {
-      document.body.setAttribute('color-theme', 'light');
+      this.setTheme(darkMode);
     }
   }
 
